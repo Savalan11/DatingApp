@@ -27,7 +27,6 @@ public UsersController(IUserRepository userRepository, IMapper mapper,
    _userRepository = userRepository;
 }
 
-//[AllowAnonymous]
 [HttpGet]
 public async Task<ActionResult<PagedList<MemberDto>>> GetUsers([FromQuery]UserParams userParams)
 {
@@ -46,6 +45,7 @@ public async Task<ActionResult<PagedList<MemberDto>>> GetUsers([FromQuery]UserPa
 
    return Ok(users);
 }
+
 
 [HttpGet("{username}")] // /api/users/2
 public async Task<ActionResult<MemberDto>> GetUser(string username)
